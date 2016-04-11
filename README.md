@@ -1,2 +1,6 @@
 # react-redux-webpack
-test project
+
+### running
+	> npm install
+ 	> npm start
+
