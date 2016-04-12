@@ -7,7 +7,6 @@ const rootReducer = combineReducers({
   books: BooksReducer,
   activeBook: ActiveBookReducer,
   history: HistoryReducer
-
 });
 
 export default rootReducer;

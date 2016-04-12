@@ -1,37 +1,31 @@
 import React, {Component} from "react";
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-// import {selectBook} from '../actions/index';
+import {writeHistory} from '../actions/index';
 
 class History extends Component {
 
-  renderTable() {
-    return this.props.history.map(record => {
-      return (
-        <tr key={record.date}>
-          <td><b>{record.date} > </b></td>
-          <td> Changed from: {record.changedFrom} - </td>
-          <td> Changed to: {record.changedTo}</td>
-        </tr>
-      );
-    });
-  }
-
   render() {
+    if (!this.props.history)
+      return <div className="history col-sm-12">No History yet.</div>
+
     return (
-      <div className="container">
-        <div className="col-sm-12">
-          <table>
-            {this.renderTable()}
-          </table>
-        </div>
+      <div className="history col-sm-12">
+        <h4>History</h4>
+        <h5>Book: {this.props.history.book.title}</h5>
+        <p>
+          <i>Added at:</i><br/>
+          {this.props.history.timestamp.day} -
+          {this.props.history.timestamp.hours}:
+          {this.props.history.timestamp.minutes}:
+          {this.props.history.timestamp.seconds}
+        </p>
       </div>
     )
   }
 }
 
-
 function mapStateToProps(state) {
+  console.log(state);
   return {
     history: state.history
   }

@@ -1,5 +1,8 @@
-export default function () {
-  return [
-    {date: 'some time', changedFrom: 'blabla', changedTo: 'blabla'}
-  ];
+export default function (state = null, action) {
+  switch(action.type){
+    case 'BOOK_SELECTED':
+      return action.payload;
+  }
+      
+  return state;
 }
