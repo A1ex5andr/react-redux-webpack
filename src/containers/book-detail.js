@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-
 class BookDetail extends Component {
+  
   render() {
-    if (!this.props.book)
+    if (!this.props.data)
       return <div className="label label-default">Please, select book to get started</div>
 
     return (
@@ -13,10 +13,10 @@ class BookDetail extends Component {
         <br/>
         <div>
           Title:
-          <b> {this.props.book.title} </b>
+          <b> {this.props.data.book.title} </b>
         </div>
         <div>Pages:
-          <i> {this.props.book.pages}</i>
+          <i> {this.props.data.book.pages}</i>
         </div>
       </div>
     );
@@ -25,7 +25,7 @@ class BookDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    book: state.activeBook
+    data: state.activeBook
   }
 }
 
